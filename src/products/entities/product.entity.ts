@@ -1,3 +1,9 @@
+interface UpdateWithParams {
+  name?: string;
+  description?: string;
+  price?: number;
+}
+
 export class Product {
   constructor(
     public id: string,
@@ -5,4 +11,10 @@ export class Product {
     public description: string,
     public price: number,
   ) {}
+
+  updateWith({ name, description, price }: UpdateWithParams) {
+    this.name = name ?? this.name;
+    this.description = description ?? this.description;
+    this.price = price ?? this.price;
+  }
 }
